@@ -16,7 +16,7 @@ function updateLast(current)
           last.rainin = current.rainin;
           last.dailyrainin = current.dailyrainin;
      }
-     elseif (current.mt == "5N1x38")
+     else if (current.mt == "5N1x38")
      {
           last.windspeedmph = current.windspeedmph;
           last.baromin = current.baromin;
