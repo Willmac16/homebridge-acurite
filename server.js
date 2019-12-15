@@ -22,6 +22,6 @@ app.get('/weatherstation/updateweatherstation.php', function (req, res) {
      last = req.query;
 })
 
-app.listen(80, function () {
+app.listen(3000, function () {
   console.log('App listening on port 3000!');
 })
