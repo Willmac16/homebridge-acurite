@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 })
 
 
-app.get('/weatherstation/updateweatherstation.php', function (req, res) {
+app.get('/weatherstation/updateweatherstation', function (req, res) {
      var dt = new Date();
      res.send('{\"localtime\":\"' + dt.toLocaleTimeString('it-IT') + '\"}');
      // res.send("work pls");
