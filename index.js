@@ -42,6 +42,9 @@ Acurite.prototype = {
 				tempSensor
 					.addCharacteristic(Characteristic.BatteryLevel)
 					.on('get', this.getBattery.bind(this))
+				tempSensor
+					.addCharacteristic(Characteristic.DiagonalFieldOfView)
+					.on('get', this.getWindDir.bind(this))
 
 
 
@@ -60,19 +63,31 @@ Acurite.prototype = {
 	getTemp: function(callback)
 	{
 		console.log(this.server.state);
-		 callback(null, (this.server.state.tempf-32.0)/1.8);
+		callback(null, (this.server.state.tempf-32.0)/1.8);
 	},
 
 	getHumid: function(callback)
 	{
 		console.log(this.server.state);
-		 callback(null, this.server.state.humidity);
+		callback(null, this.server.state.humidity);
+	},
+
+	getWindDir: function(callback)
+	{
+		console.log(this.server.state);
+		callback(null, this.server.state.winddir);
+	},
+
+	getWindSpeed: fuction(callback)
+	{
+		console.log(this.server.state);
+		callback(null, this.server.state.windspeedmph);
 	},
 
 	getBattery: function(callback)
 	{
 		console.log(this.server.state);
-		 callback(null, this.server.state.battery == "normal" ? 100 : 0);
+		callback(null, this.server.state.battery == "normal" ? 100 : 0);
 	}
 
 
