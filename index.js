@@ -43,9 +43,9 @@ Acurite.prototype = {
 					.addCharacteristic(Characteristic.BatteryLevel)
 					.on('get', this.getBattery.bind(this))
 
-				tempSensor
-					.addCharacteristic(Characteristic.DiagonalFieldOfView)
-					.on('get', this.getWindDir.bind(this))
+				// tempSensor
+				// 	.addCharacteristic(Characteristic.DiagonalFieldOfView)
+				// 	.on('get', this.getWindDir.bind(this))
 
 
 
