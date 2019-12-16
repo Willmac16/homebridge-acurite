@@ -73,17 +73,17 @@ Acurite.prototype = {
 		callback(null, this.server.state.humidity);
 	},
 
-	getWindDir: function(callback)
-	{
-		console.log(this.server.state);
-		callback(null, this.server.state.winddir);
-	},
-
-	getWindSpeed: function(callback)
-	{
-		console.log(this.server.state);
-		callback(null, this.server.state.windspeedmph);
-	},
+	// getWindDir: function(callback)
+	// {
+	// 	console.log(this.server.state);
+	// 	callback(null, this.server.state.winddir);
+	// },
+	//
+	// getWindSpeed: function(callback)
+	// {
+	// 	console.log(this.server.state);
+	// 	callback(null, this.server.state.windspeedmph);
+	// },
 
 	getBattery: function(callback)
 	{
