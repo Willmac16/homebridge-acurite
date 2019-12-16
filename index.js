@@ -35,7 +35,8 @@ Acurite.prototype = {
                 		.getCharacteristic(Characteristic.CurrentTemperature)
                      	.on('get', this.getTemp.bind(this))
 
-				tempSensor
+			 const humidSensor = new Service.HumiditySensor(this.name);
+				humidSensor
 					.addCharacteristic(Characteristic.CurrentRelativeHumidity)
 					.on('get', this.getHumid.bind(this))
 
@@ -72,7 +73,7 @@ Acurite.prototype = {
 	getBattery: function(callback)
 	{
 		console.log(this.server.state);
-		 callback(null, this.server.state.battery == "normal");
+		 callback(null, this.server.state.battery == "normal"*100);
 	}
 
 
