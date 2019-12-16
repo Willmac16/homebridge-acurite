@@ -52,7 +52,7 @@ Acurite.prototype = {
 	getTemp: function(callback)
 	{
 		console.log(this);
-		 callback(null, (this.server.state.tempf-32)*4/9);
+		 callback(null, (this.server.state.tempf-32.0)*4.0/9.0);
 	}
 
 
