@@ -1,30 +1,30 @@
 const express = require('express');
 const app = express();
 
-var last = Object();
+module.exports.state = Object();
 
-function updateLast(current)
+function updateState(current)
 {
      if (current.mt == "5N1x31")
      {
-          last.windspeedmph = current.windspeedmph;
-          last.baromin = current.baromin;
-          last.battery = current.battery;
-          last.rssi = current.rssi;
+          module.exports.state.windspeedmph = current.windspeedmph;
+          module.exports.state.baromin = current.baromin;
+          module.exports.state.battery = current.battery;
+          module.exports.state.rssi = current.rssi;
 
-          last.winddir = current.winddir;
-          last.rainin = current.rainin;
-          last.dailyrainin = current.dailyrainin;
+          module.exports.state.winddir = current.winddir;
+          module.exports.state.rainin = current.rainin;
+          module.exports.state.dailyrainin = current.dailyrainin;
      }
      else if (current.mt == "5N1x38")
      {
-          last.windspeedmph = current.windspeedmph;
-          last.baromin = current.baromin;
-          last.battery = current.battery;
-          last.rssi = current.rssi;
+          module.exports.state.windspeedmph = current.windspeedmph;
+          module.exports.state.baromin = current.baromin;
+          module.exports.state.battery = current.battery;
+          module.exports.state.rssi = current.rssi;
 
-          last.humidity = current.humidity;
-          last.tempf = current.tempf;
+          module.exports.state.humidity = current.humidity;
+          module.exports.state.tempf = current.tempf;
      }
 }
 
@@ -34,7 +34,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
-  res.send(last);
+  res.send(module.exports.state);
 })
 
 
@@ -43,7 +43,7 @@ app.get('/weatherstation/updateweatherstation', function (req, res) {
      res.send('{\"localtime\":\"' + dt.toLocaleTimeString('it-IT') + '\"}');
      console.log(req.query);
 
-     updateLast(req.query);
+     updatemodule.exports.state(req.query);
 })
 
 app.listen(3000, function () {
