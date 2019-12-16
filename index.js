@@ -33,9 +33,7 @@ Acurite.prototype = {
                 const tempSensor = new Service.TemperatureSensor(this.name);
                    tempSensor
                      .getCharacteristic(Characteristic.CurrentTemperature)
-                     .on('get', function() {
-					 console.log(this);
-					  callback(null, this.server.state.tempf);})
+                     .on('get', this.getTemp.bind(this))
 
 
 
@@ -49,7 +47,13 @@ Acurite.prototype = {
                      .setCharacteristic(Characteristic.FirmwareRevision, "0.1.1");
 
                   return [informationService, tempSensor];
-     }
+     },
+
+	getTemp: function(callback)
+	{
+		console.log(this);
+		 callback(null, this.server.state.tempf);
+	}
 
 
 };
