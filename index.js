@@ -5,7 +5,7 @@ module.exports = function (homebridge)
 	Characteristic = homebridge.hap.Characteristic;
 
 	// Start platform
-	homebridge.registerAccesory("homebridge-acurite", "Acurite", Acurite);
+	homebridge.registerAccessory("homebridge-acurite", "Acurite", Acurite);
 };
 
 function Acurite(log, config)
@@ -13,7 +13,7 @@ function Acurite(log, config)
      this.log = log;
 	this.config = config;
 
-     this.server = require('server.js');
+     this.server = require('./server.js');
 
 
 }
@@ -31,7 +31,7 @@ Acurite.prototype = {
                 const tempSensor = new Service.TemperatureSensor(this.name);
                    tempSensor
                      .getCharacteristic(Characteristic.CurrentTemperature)
-                     .on('get', this.server.state.tempf)
+                     .on('get', function() {this.server.state.tempf})
 
 
 
