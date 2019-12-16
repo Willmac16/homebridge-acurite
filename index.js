@@ -35,8 +35,7 @@ Acurite.prototype = {
                 		.getCharacteristic(Characteristic.CurrentTemperature)
                      	.on('get', this.getTemp.bind(this))
 
-			 const humidSensor = new Service.HumiditySensor(this.name + 1);
-				humidSensor
+				tempSensor
 					.addCharacteristic(Characteristic.CurrentRelativeHumidity)
 					.on('get', this.getHumid.bind(this))
 
