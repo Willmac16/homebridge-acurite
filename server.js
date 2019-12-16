@@ -3,6 +3,8 @@ const app = express();
 
 module.exports.state = Object();
 
+module.exports.state.work = "pls";
+
 function updateState(current)
 {
      if (current.mt == "5N1x31")
