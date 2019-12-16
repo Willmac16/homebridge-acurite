@@ -78,7 +78,7 @@ Acurite.prototype = {
 		callback(null, this.server.state.winddir);
 	},
 
-	getWindSpeed: fuction(callback)
+	getWindSpeed: function(callback)
 	{
 		console.log(this.server.state);
 		callback(null, this.server.state.windspeedmph);
@@ -89,6 +89,5 @@ Acurite.prototype = {
 		console.log(this.server.state);
 		callback(null, this.server.state.battery == "normal" ? 100 : 0);
 	}
-
 
 };
