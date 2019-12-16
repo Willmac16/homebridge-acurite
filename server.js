@@ -43,7 +43,7 @@ app.get('/weatherstation/updateweatherstation', function (req, res) {
      res.send('{\"localtime\":\"' + dt.toLocaleTimeString('it-IT') + '\"}');
      console.log(req.query);
 
-     updatemodule.exports.state(req.query);
+     updateState(req.query);
 })
 
 app.listen(3000, function () {
