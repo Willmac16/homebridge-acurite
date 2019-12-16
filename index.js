@@ -72,7 +72,7 @@ Acurite.prototype = {
 	getBattery: function(callback)
 	{
 		console.log(this.server.state);
-		 callback(null, this.server.state.battery == "normal"*100);
+		 callback(null, this.server.state.battery == "normal" ? 100 : 0);
 	}
 
 
