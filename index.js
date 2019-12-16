@@ -15,6 +15,8 @@ function Acurite(log, config)
 
      this.server = require('./server.js');
 
+	console.log(this.server);
+
 
 }
 
