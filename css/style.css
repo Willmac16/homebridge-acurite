@@ -1,0 +1,43 @@
+body
+{
+     background-color: black;
+     color: white;
+     text-align: center;
+     height: 100%;
+     width: 100%;
+     margin: 0;
+}
+
+div
+{
+  margin: 2em;
+  padding: 2em;
+  background-color: #070d17;
+  border-radius: 1em;
+}
+
+a
+{
+     background-color: #2a3040;
+     border-radius: 1em;
+     color: #8ec1f3;
+}
+
+img
+{
+     width: auto;
+}
+
+p
+{
+     display: block;
+     margin: 1em;
+}
+
+table, tr, th, td
+{
+     margin: auto;
+     padding: 20px;
+     border: white solid 2px;
+     border-collapse: collapse;
+}

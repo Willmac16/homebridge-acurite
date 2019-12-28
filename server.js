@@ -3,7 +3,7 @@ const app = express();
 
 module.exports.state = Object();
 
-module.exports.state.work = "pls";
+// module.exports.state.work = "pls";
 
 function updateState(current)
 {
@@ -31,12 +31,20 @@ function updateState(current)
 }
 
 const bodyParser = require('body-parser');
-// ...
-// ...
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.set('view engine', 'ejs')
+
 app.get('/', function (req, res) {
+  res.render('index', {state: module.exports.state});
+})
+
+app.get('/api', function (req, res) {
   res.send(module.exports.state);
+})
+
+app.get('/css/style.css', function (req, res) {
+  res.sendFile('./css/style.css', { root: __dirname });
 })
 
 

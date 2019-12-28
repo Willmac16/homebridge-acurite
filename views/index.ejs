@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Test</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <div class="container">
-      <fieldset>
-        <form action="/" method="post">
-          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-          <input type="submit" class="ghost-button" value="Get Weather">
-        </form>
-      </fieldset>
-    </div>
-  </body>
+     <head>
+          <meta charset="utf-8">
+          <title>Test</title>
+          <link rel="stylesheet" type="text/css" href="/css/style.css">
+          <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+     </head>
+     <body>
+          <h1>Your Acurite Weather Station</h1>
+          <% if (state) {%>
+               <table>
+               <% if (Object.entries(state).length > 0) { %>
+               <% for (var entry of Object.entries(state))
+               { %>
+                    <tr>
+                         <th><%= entry[0]%></th>
+                         <td><%= entry[1]%></td>
+                    </tr>
+               <% }%>
+               <% } else { %>
+                    <p>There is no data yet.</p>
+                    <p>Try restarting the Acurite Smart Hub, and maybe press the register button.</p>
+               <% } %>
+               </table>
+          <% } %>
+     </body>
 </html>
