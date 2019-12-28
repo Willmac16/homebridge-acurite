@@ -21,6 +21,10 @@
                          {
                               if (this.status == 200)
                               {
+                                   while (table.firstChild) {
+                                        table.removeChild(table.firstChild);
+                                   }
+
                                    var state = JSON.parse(this.responseText);
 
                                    if (Object.entries(state).length > 0)
