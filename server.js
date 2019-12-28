@@ -47,6 +47,10 @@ app.get('/css/style.css', function (req, res) {
   res.sendFile('./css/style.css', { root: __dirname });
 })
 
+app.get('/favicon.ico', function (req, res) {
+  res.sendFile('./favicon.ico', { root: __dirname });
+})
+
 
 app.get('/weatherstation/updateweatherstation', function (req, res) {
      var dt = new Date();

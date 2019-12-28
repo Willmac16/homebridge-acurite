@@ -8,21 +8,55 @@
      </head>
      <body>
           <h1>Your Acurite Weather Station</h1>
-          <% if (state) {%>
-               <table>
-               <% if (Object.entries(state).length > 0) { %>
-               <% for (var entry of Object.entries(state))
-               { %>
-                    <tr>
-                         <th><%= entry[0]%></th>
-                         <td><%= entry[1]%></td>
-                    </tr>
-               <% }%>
-               <% } else { %>
-                    <p>There is no data yet.</p>
-                    <p>Try restarting the Acurite Smart Hub, and maybe press the register button.</p>
-               <% } %>
+               <table id="dataTable">
+               <script>
+               function updateData()
+               {
+                    var table = document.getElementById("dataTable");
+
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function()
+                    {
+                         if (this.readyState == 4)
+                         {
+                              if (this.status == 200)
+                              {
+                                   var state = JSON.parse(this.responseText);
+
+                                   if (Object.entries(state).length > 0)
+                                   {
+                                        for (var entry of Object.entries(state))
+                                        {
+                                             var row = document.createElement("tr");
+                                             var header = document.createElement("th");
+                                             var data = document.createElement("td");
+
+                                             header.innerHTML = entry[0];
+                                             data.innerHTML = entry[1];
+
+                                             row.append(header);
+                                             row.append(data);
+
+                                             dataTable.append(row);
+                                        }
+                                   }
+                                   else
+                                   {
+                                        table.append(document.createTextNode("There is no data yet."));
+                                        table.append(document.createTextNode("Try restarting the Acurite Smart Hub, and maybe press the register button."));
+                                   }
+                              }
+                         }
+                    };
+                    xmlhttp.open("GET", "api", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send();
+
+
+               }
+
+               setInterval(updateData, 3000);
+               </script>
                </table>
-          <% } %>
      </body>
 </html>
