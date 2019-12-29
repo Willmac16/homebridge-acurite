@@ -43,9 +43,10 @@ Acurite.prototype = {
 					.addCharacteristic(Characteristic.BatteryLevel)
 					.on('get', this.getBattery.bind(this))
 
-				tempSensor
-					.addCharacteristic(Characteristic.OccupancySensor)
-					.on('get', this.getRain.bind(this))
+			// const occuSensor = new Service.OccupancySensor(this.name);
+			// 	// occuSensor
+			// 	// 	.addCharacteristic(Characteristic.OccupancyDetected)
+			// 	// 	.on('get', this.getRain.bind(this))
 
 
 
@@ -58,7 +59,7 @@ Acurite.prototype = {
                      .setCharacteristic(Characteristic.SerialNumber, "AcSH")
                      .setCharacteristic(Characteristic.FirmwareRevision, "0.1.1");
 
-                  return [informationService, tempSensor];
+                  return [informationService, tempSensor, occuSensor];
      },
 
 	getTemp: function(callback)
