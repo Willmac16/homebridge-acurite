@@ -59,7 +59,7 @@ Acurite.prototype = {
                      .setCharacteristic(Characteristic.SerialNumber, "AcSH")
                      .setCharacteristic(Characteristic.FirmwareRevision, "0.1.1");
 
-                  return [informationService, tempSensor, occuSensor];
+                  return [informationService, tempSensor];
      },
 
 	getTemp: function(callback)
@@ -74,11 +74,11 @@ Acurite.prototype = {
 		callback(null, this.server.state.humidity);
 	},
 
-	getRain: function(callback)
-	{
-		console.log(this.server.state);
-		callback(null, this.server.state.rainin > 0.00);
-	},
+	// getRain: function(callback)
+	// {
+	// 	console.log(this.server.state);
+	// 	callback(null, this.server.state.rainin > 0.00);
+	// },
 
 
 	getBattery: function(callback)
