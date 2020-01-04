@@ -7,9 +7,9 @@ It uses a node.js webserver to interface with the Acurite Smart Hub (DNS redirec
 
 # Sample Config
   "accessories":
-  [
-    {
-      "accessory": "Acurite",
-      "name": "Weather Station"
-    }
-  ]
+    [
+      {
+        "accessory": "Acurite",
+        "name": "Weather Station"
+      }
+    ]
